@@ -51,6 +51,7 @@ func reset() -> void:
 		self.global_position = start_pos
 		jump_frame = 0
 		is_grounded = false
+		$ResetAudio.play()
 
 func move() -> float:
 	var move: float = 0

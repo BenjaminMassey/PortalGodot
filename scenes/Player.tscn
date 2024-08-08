@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bswgl070387l8"]
+[gd_scene load_steps=9 format=3 uid="uid://bswgl070387l8"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_bwki1"]
 [ext_resource type="Texture2D" uid="uid://bplksvx33dlbc" path="res://assets/images/character.png" id="1_std7g"]
 [ext_resource type="Script" path="res://scripts/Gun.gd" id="3_ga441"]
 [ext_resource type="Texture2D" uid="uid://4epb65lgsufv" path="res://assets/images/arm.png" id="3_xwlaj"]
+[ext_resource type="AudioStream" uid="uid://cg14tpf46eb1o" path="res://assets/sounds/shot.wav" id="5_mca68"]
+[ext_resource type="AudioStream" uid="uid://crya5d7p4pxba" path="res://assets/sounds/reset.mp3" id="6_ye5gb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fj0nc"]
 size = Vector2(20, 6)
@@ -40,3 +42,12 @@ texture = ExtResource("3_xwlaj")
 
 [node name="GunEnd" type="Area2D" parent="Gun"]
 position = Vector2(40.345, 0)
+
+[node name="GunAudio" type="AudioStreamPlayer2D" parent="Gun"]
+position = Vector2(-11, 2)
+stream = ExtResource("5_mca68")
+volume_db = -30.0
+
+[node name="ResetAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ye5gb")
+volume_db = -30.0

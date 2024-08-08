@@ -28,3 +28,4 @@ func portals_input() -> void:
 		var shot_sprite := shot.get_child(0) # TODO: better than index
 		shot_sprite.texture = load("res://assets/images/" + type + "_portal.png")
 		self.owner.owner.add_child(shot)
+		$GunAudio.play()

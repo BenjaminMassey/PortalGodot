@@ -16,6 +16,7 @@ func area_check(area: Area2D) -> void:
 			area.queue_free()
 		else:
 			moving = false
+			$PortalAttachAudio.play()
 	else:
 		if area.is_in_group("player"):
 			var target_group: String = ""
@@ -30,6 +31,7 @@ func area_check(area: Area2D) -> void:
 					player.global_position = target_portal.global_position + Vector2(0, -75)
 					player.is_grounded = false
 					player.jump_frame = 0
+					$PortalTeleportAudio.play()
 
 func _physics_process(delta: float) -> void:
 	if moving:

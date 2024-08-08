@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8i5xn28esi7l"]
+[gd_scene load_steps=6 format=3 uid="uid://c8i5xn28esi7l"]
 
 [ext_resource type="Script" path="res://scripts/Portal.gd" id="1_0n6xr"]
 [ext_resource type="Texture2D" uid="uid://smjvnwowcywo" path="res://assets/images/primary_portal.png" id="1_4hlk7"]
+[ext_resource type="AudioStream" uid="uid://dc2badx8blbfu" path="res://assets/sounds/portal.mp3" id="3_isdqd"]
+[ext_resource type="AudioStream" uid="uid://7aodlm87ajt1" path="res://assets/sounds/teleport.wav" id="4_7powv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqykd"]
 size = Vector2(10, 10)
@@ -14,3 +16,11 @@ texture = ExtResource("1_4hlk7")
 
 [node name="PortalCollider" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iqykd")
+
+[node name="PortalAttachAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_isdqd")
+volume_db = -30.0
+
+[node name="PortalTeleportAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7powv")
+volume_db = -30.0

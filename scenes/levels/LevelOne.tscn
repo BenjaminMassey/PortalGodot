@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://icomf20cd4g7"]
+[gd_scene load_steps=5 format=3 uid="uid://icomf20cd4g7"]
 
 [ext_resource type="PackedScene" uid="uid://bswgl070387l8" path="res://scenes/Player.tscn" id="1_fjnqb"]
+[ext_resource type="Script" path="res://scripts/LevelOne.gd" id="1_fup8h"]
 [ext_resource type="PackedScene" uid="uid://2oxjedpk2k3x" path="res://scenes/Block.tscn" id="2_uh7tm"]
+[ext_resource type="AudioStream" uid="uid://dlec47jtuekwg" path="res://assets/sounds/music.wav" id="3_0owvs"]
 
 [node name="LevelOne" type="Node2D"]
+script = ExtResource("1_fup8h")
 
 [node name="Player" parent="." instance=ExtResource("1_fjnqb")]
 position = Vector2(526, 184)
@@ -27,3 +30,18 @@ scale = Vector2(10, 2)
 [node name="Platform (Right)" parent="." instance=ExtResource("2_uh7tm")]
 position = Vector2(837.66, 570.135)
 scale = Vector2(10, 2)
+
+[node name="ControlsUI" type="RichTextLabel" parent="."]
+offset_left = 25.0
+offset_top = 533.0
+offset_right = 149.0
+offset_bottom = 628.0
+text = "A/D = move
+SPACE = jump
+MOUSE = shoot
+R = reset"
+scroll_active = false
+
+[node name="LevelOneMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0owvs")
+volume_db = -20.0
