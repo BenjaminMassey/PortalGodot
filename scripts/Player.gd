@@ -19,8 +19,20 @@ func _ready() -> void:
 
 func init_grounded_signals() -> void:
 	var area := $FeetArea as Area2D
-	area.connect("area_entered", func check(area): is_grounded = true)
-	area.connect("area_exited", func check(area): is_grounded = false)
+	area.connect("area_entered", area_entered)
+	area.connect("area_exited", area_exited)
+	
+func area_entered(area: Area2D) -> void:
+	if area.is_in_group("player") || \
+		area.is_in_group("primary_portal") || area.is_in_group("secondary_portal"):
+		return
+	is_grounded = true
+	
+func area_exited(area: Area2D) -> void:
+	if area.is_in_group("player") || \
+		area.is_in_group("primary_portal") || area.is_in_group("secondary_portal"):
+		return
+	is_grounded = false
 
 func _physics_process(delta: float) -> void:
 	reset()
